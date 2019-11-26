@@ -3,10 +3,10 @@
 define('APPROOT', dirname(dirname(__FILE__)));
 
 // URL Root
-define('URLROOT', 'http://localhost/disburs');
+define('URLROOT', 'http://localhost');
 
 // Site Name
-define('SITENAME', 'Disburs Services without Frameworks');
+define('SITENAME', 'Disburse Services without Frameworks');
 
 // CRUD Operations' Alert Messages
 define('DATA_NOT_SAVED', 'Something went wrong Saving new Data');
