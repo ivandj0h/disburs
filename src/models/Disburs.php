@@ -66,7 +66,7 @@ class Disburs
      * READ DATA FROM THE DATABASE
      * @return array
      */
-    public function selectData(): array
+    public function selectData() : array
     {
         $this->db->query("SELECT * FROM disburs_tbl");
         return $this->db->resultSet();

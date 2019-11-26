@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS `disburs_db` ;
 USE `disburs_db`;
 
 -- 2 create table disburs_tbl.disburs_db
-CREATE TABLE IF NOT EXISTS `disburs` (
+CREATE TABLE IF NOT EXISTS `disburs_tbl` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `time_served` char(50) DEFAULT NULL,
     `id_disburs` char(50) DEFAULT NULL,
