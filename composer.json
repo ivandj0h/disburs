@@ -1,0 +1,16 @@
+{
+    "name": "ivandjoh/disburs",
+    "description": "This is a small service that send the disbursement data to the 3rd party API Called slightly-big Flip",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ivandi djoh gah",
+            "email": "ivandi.gah@gmail.com"
+        }
+    ],
+    "autoload": {
+		"files": ["config/constants.php", "config/credentials.php", "config/utilities.php"],
+		"classmap": ["src/"]
+	},
+    "require": {}
+}
