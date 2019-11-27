@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3>Testing</h3>
+            <h3>Create Disbursement</h3>
             <form method="post" action="/public/save">
                 <div class="form-group">
                     <label for="bank_code">Bank Code </label>
