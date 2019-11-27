@@ -53,7 +53,7 @@ class Router
    * This is where you set the controller and action taken from the URI (like 'posts/add')
    * ... and save those into $this->params
    * This method is called in routes.php
-   * @param  string $uri        Full route like 'task/add-task'
+   * @param  string $uri        Full route like 'index/add-Disbursment'
    * @return void
    */
   public function setParams(string $uri) : void
@@ -137,8 +137,8 @@ class Router
 
   /**
    * Camel case the 'action' string
-   * If in the URL the action is something like '{controller}/add-new-task'...
-   * ... change it to 'addNewTask' in order to make it match with a class method
+   * If in the URL the action is something like '{controller}/add-new-Disbursment'...
+   * ... change it to 'addNewDisbursment' in order to make it match with a class method
    * @param string $action Get the 'action' from the URL
    * @return string      Camel Cased 'action' string
    */

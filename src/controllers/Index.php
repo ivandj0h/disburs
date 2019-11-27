@@ -41,4 +41,25 @@ class Index
   {
     return $this->model->selectData();
   }
+
+ 
+  /**
+   * THIS IS A FUNCTION 
+   * TO CREATE DATA AND UPDATED INTO DATABASE
+   */
+  public function create()
+  {
+    view('Index/create', $this->getDisburs());
+  }
+
+
+  /**
+   * THIS IS A FUNCTION 
+   * TO CREATE DATA AND UPDATED INTO DATABASE
+   */
+  public function save()
+  {
+    //view('Index/create', $this->getDisburs());
+    echo "data saved!";
+  }  
 }

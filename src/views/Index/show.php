@@ -5,6 +5,7 @@
         <div class="col-lg-12">
             <div class="page-header">
                 <h3 id="tables">Disbursement List</h3>
+                <hr />
             </div>
             <div class="bs-component">
                 <table class="table table-responsive">

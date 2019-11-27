@@ -26,7 +26,7 @@
                     <a class="nav-link" href="<?= URLROOT; ?>/public/list">Preview disbursement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= URLROOT; ?>/public/tasks">Create Disbursement</a>
+                    <a class="nav-link" href="<?= URLROOT; ?>/public/create">Create Disbursement</a>
                 </li>
             </ul>
         </div>
