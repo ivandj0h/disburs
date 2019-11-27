@@ -60,8 +60,6 @@ class Disburs
         date_default_timezone_set('Asia/Jakarta');
         $datetime = date('Y-m-d H:i:s');
 
-var_dump($p);
-
         /**
          * THIS BLOCK CODE
          * IS USED TO SAVE DATA INTO THE DATABASE
@@ -113,7 +111,7 @@ var_dump($p);
         $receipt         = '';
         $time_served     = '';
 
-        if (isset($result->status) === true) {
+        if (isset($result->status) == true) {
             $status_disburs = $result->status;
             $receipt        = $result->receipt;
             $time_served    = $result->time_served;
