@@ -42,6 +42,8 @@ For the Installation, please follow these inctructions :
     2.  Import the data/disburs_db.sql file to phpMyAdmin or any Mysql Tools.
     3.  Run composer install
     4.  Start your Apache/Nginx server and go to http://localhost/public
+        in my computer i use these command :
+            php.exe -S localhost:80 -t B:\SERVERS\disburs
 
 ### ScreenShoots
 ![Dashboard](captured/home.png "This is the Home's Captured")
@@ -49,7 +51,7 @@ For the Installation, please follow these inctructions :
 
 
 
-Cause of this services wasn't use any frameworks like Slim, Lumen, etc perhaps it still have any bugs and still far from perfection but ia already tried to developed it with clean code and every changelog you can follow it on my github commited.
+Cause of this services wasn't use any frameworks like Slim, Lumen, etc perhaps it still have any bugs and still far from perfection but i already tried to developed it with clean code and every changelog that was made by me can be seen it on my github commited.
 
 Best Regards,
 Ivandjoh
