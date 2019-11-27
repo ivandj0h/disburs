@@ -13,6 +13,20 @@ class Disburs
         $this->db = new Database;
     }
 
+
+    /**
+     * FUNCTION POST DATA TO THE EXTERNAL API
+     * Strip html and slashes etc
+     */    
+    public function secure_data($data)
+    {
+        $Sdata = trim($data);
+        $Sdata = stripslashes($data);
+        $Sdata = htmlspecialchars($data);
+        //var_dump($Sdata);
+        return $Sdata;
+    }
+
     /**
      * FUNCTION INSERT OR SAVING DATA INTO THE DATABASE
      * @return boolean
@@ -26,25 +40,27 @@ class Disburs
 
         $url = 'https://nextar.flip.id/disburse';
 
-        $result = self::http_post($param, $url, $header);
-        $result = json_decode($result);
+        $result = self::postExternalApi($param, $url, $header);
+        $p = json_decode($result);
 
         $id_disburs     = '';
         $status_disburs = '';
-        $receipt         = '';
-        $time_served     = '';
+        $receipt        = '';
+        $time_served    = '';
 
-        if (isset($result->status) === true) {
-            $id_disburs     = $result->id;
-            $status_disburs = $result->status;
-            $receipt         = $result->receipt;
-            $time_served     = $result->time_served;
+        if (isset($p->status) === true) {
+            $id_disburs     = $p->id;
+            $status_disburs = $p->status;
+            $receipt        = $p->receipt;
+            $time_served    = $p->time_served;
         }
 
         $request = json_encode($param);
-        $response = json_encode($result);
+        $response = json_encode($p);
         date_default_timezone_set('Asia/Jakarta');
         $datetime = date('Y-m-d H:i:s');
+
+var_dump($p);
 
         /**
          * THIS BLOCK CODE
@@ -86,17 +102,21 @@ class Disburs
 
         $url = 'https://nextar.flip.id/disburse/' . $trx_id;
 
-        $result = self::http_get($url, $header);
+        $result = self::getExternalApi($url, $header);
         $result = json_decode($result);
-        // update to database
+
+        /**
+         * THIS BLOCK CODE
+         * IS USED TO UPDATED DATA INTO THE DATABASE
+         */
         $status_disburs = '';
         $receipt         = '';
         $time_served     = '';
 
         if (isset($result->status) === true) {
             $status_disburs = $result->status;
-            $receipt         = $result->receipt;
-            $time_served     = $result->time_served;
+            $receipt        = $result->receipt;
+            $time_served    = $result->time_served;
         }
         $response = json_encode($result);
         date_default_timezone_set('Asia/Jakarta');
@@ -110,7 +130,7 @@ class Disburs
         $this->db->bind(':updated_at', $updated_at);
         if ($this->db->execute())
             $r2 = $this->db->query("SELECT * FROM disburs_tbl WHERE id=" . $trx_id);
-        return $rs->fetch();
+        return $r2->fetch();
         return false;
     }
 
@@ -128,7 +148,6 @@ class Disburs
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-
         curl_setopt($ch, CURLOPT_USERPWD, $secret_key . ":");
 
         $response = curl_exec($ch);
@@ -143,24 +162,22 @@ class Disburs
      */
     public function postExternalApi($param, $url, $header)
     {
-        $ch = curl_init();
 
         $secret_key = "HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41";
+
+        $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
-
         curl_setopt($ch, CURLOPT_POST, TRUE);
-
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($param));
-
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-
-        curl_setopt($ch, CURLOPT_USERPWD, $secret_key . ":");
+        curl_setopt($ch, CURLOPT_USERNAME, $secret_key);
 
         $response = curl_exec($ch);
         curl_close($ch);
         return $response;
     }
+
 }

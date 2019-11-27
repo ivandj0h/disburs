@@ -58,8 +58,15 @@ class Index
    * TO CREATE DATA AND UPDATED INTO DATABASE
    */
   public function save()
-  {
-    //view('Index/create', $this->getDisburs());
-    echo "data saved!";
+  {		
+		$param = [
+      "bank_code" => $_POST['bank_code'],
+      "account_number" =>$_POST['account_number'],
+			"amount" =>$_POST['amount'],
+			"remark" =>$_POST['remark'],
+		];
+
+		$this->model->saveData($param);
+		$this->show();    
   }  
 }

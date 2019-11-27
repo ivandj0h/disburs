@@ -22,7 +22,10 @@
                         <?php
                         foreach ($data as $list) {
                             echo '<tr>
-                                    <td>' . $list->status_disburs . '</td>
+                                    <td>'; ?> 
+                                    <?php echo '<a  href="';?>
+                                    <?= URLROOT; ?>
+                                    <?php echo '/public/detail&i=' . $list->id_disburs . '">'.$list->id_disburs .'</a></td>
                                     <td>' . $list->status_disburs . '</td>
                                     <td>' . $list->time_served . '</td>
                                     <td>' . $list->receipt . '</td>
