@@ -15,7 +15,7 @@ function getUri() : string
 
 /**
  * Loads a view file
- * @param  string $view Example: 'index', 'about', 'contact'
+ * @param  string $view Example: 'index', etc
  * @param  array  $data Passing vars to the view
  * @return void
  */

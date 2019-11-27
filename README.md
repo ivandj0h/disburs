@@ -41,7 +41,13 @@ For the Installation, please follow these inctructions :
     1.  Download as .zip or clone this repo using git clone https://github.com/ivandi1980/disburs.git.
     2.  Import the data/disburs_db.sql file to phpMyAdmin or any Mysql Tools.
     3.  Run composer install
-    4.  Start your Apache/Nginx server and go to http://localhost/disburs
+    4.  Start your Apache/Nginx server and go to http://localhost/public
+
+### ScreenShoots
+![Dashboard](captured/home.png "This is the Home's Captured")
+![Dashboard](captured/list.png "This is the List's Captured")
+
+
 
 Cause of this services wasn't use any frameworks like Slim, Lumen, etc perhaps it still have any bugs and still far from perfection but ia already tried to developed it with clean code and every changelog you can follow it on my github commited.
 

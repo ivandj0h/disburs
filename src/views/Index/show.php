@@ -1,10 +1,10 @@
 <?php require_once APPROOT . '/src/views/include/header.php'; ?>
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
-                <h3 id="tables">List disburs</h3>
+                <h3 id="tables">Disbursement List</h3>
             </div>
             <div class="bs-component">
                 <table class="table table-responsive">
